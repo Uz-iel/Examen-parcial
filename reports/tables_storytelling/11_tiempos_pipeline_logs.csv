@@ -1,0 +1,7 @@
+﻿archivo,tipo,tiempo_segundos,modificado
+training_2026-05-29_23-56-49.log,entrenamiento,148.49,2026-05-29 23:59:17.947051
+training_2026-05-30_00-00-22.log,entrenamiento,1034.17,2026-05-30 00:17:36.372163
+training_2026-05-30_06-31-54.log,entrenamiento,127.4,2026-05-30 06:34:02.422898
+training_2026-05-30_06-34-34.log,entrenamiento,1164.8,2026-05-30 06:53:59.118327
+inference_2026-05-30_06-28-42.log,inferencia,7.58,2026-05-30 06:28:49.777262
+inference_2026-05-30_06-29-06.log,inferencia,12.01,2026-05-30 06:29:18.285339

@@ -1,62 +1,71 @@
-2026-05-29 21:24:25 | INFO | ======================================================================
-2026-05-29 21:24:25 | INFO | PIPELINE DE ENTRENAMIENTO -- Parcial MLOps
-2026-05-29 21:24:25 | INFO | ======================================================================
-2026-05-29 21:24:25 | INFO | Config usado: config/config_completo.yaml
-2026-05-29 21:24:25 | INFO | Experimento: experimento_completo
-2026-05-29 21:24:25 | INFO | [STEP 1] Preparando datasets por periodos...
-2026-05-29 21:24:25 | INFO | Archivo encontrado: data/raw/training\p1_extrac.csv
-2026-05-29 21:24:26 | INFO | Periodo 1 cargado: (80000, 69)
-2026-05-29 21:24:26 | INFO | Archivo encontrado: data/raw/training\p2_extrac.csv
-2026-05-29 21:24:27 | INFO | Periodo 2 cargado: (80000, 69)
-2026-05-29 21:24:27 | INFO | Archivo encontrado: data/raw/training\p3_extrac.csv
-2026-05-29 21:24:28 | INFO | Periodo 3 cargado: (80000, 69)
-2026-05-29 21:24:28 | INFO | Archivo encontrado: data/raw/training\p4_extrac.csv
-2026-05-29 21:24:28 | INFO | Periodo 4 cargado: (80000, 69)
-2026-05-29 21:24:28 | INFO | Archivo encontrado: data/raw/training\p5_extrac.csv
-2026-05-29 21:24:29 | INFO | Periodo 5 cargado: (80000, 69)
-2026-05-29 21:24:29 | INFO | Archivo encontrado: data/raw/training\p6_extrac.csv
-2026-05-29 21:24:30 | INFO | Periodo 6 cargado: (80000, 69)
-2026-05-29 21:24:30 | INFO | Archivo encontrado: data/raw/training\p7_extrac.csv
-2026-05-29 21:24:31 | INFO | Periodo 7 cargado: (80000, 69)
-2026-05-29 21:24:31 | INFO | Archivo encontrado: data/raw/training\p8_extrac.csv
-2026-05-29 21:24:32 | INFO | Periodo 8 cargado: (80000, 69)
-2026-05-29 21:24:32 | INFO | Archivo encontrado: data/raw/training\p9_extrac.csv
-2026-05-29 21:24:32 | INFO | Periodo 9 cargado: (80000, 69)
-2026-05-29 21:24:58 | INFO | Train: (480000, 60) | tasa target 0.0327
-2026-05-29 21:24:58 | INFO | Valid: (80000, 60) | tasa target 0.0334
-2026-05-29 21:24:58 | INFO | OOT  : (160000, 60) | tasa target 0.0401
-2026-05-29 21:24:58 | INFO | [STEP 2] Entrenando modelos base...
-2026-05-29 21:32:47 | INFO | CPUs detectadas: 12
-2026-05-29 21:32:47 | INFO | Workers usados en paralelo: 4
-2026-05-29 21:32:47 | INFO | Modo de paralelismo: joblib.Parallel por modelo
-2026-05-29 21:38:36 | INFO | Modelo paralelo completado: LogisticRegression
-2026-05-29 21:38:36 | INFO | Modelo paralelo completado: RandomForest
-2026-05-29 21:38:36 | INFO | Modelo paralelo completado: ExtraTrees
-2026-05-29 21:38:36 | INFO | Modelo paralelo completado: GradientBoosting
-2026-05-29 21:38:36 | INFO | Tiempo secuencial: 468.92
-2026-05-29 21:38:36 | INFO | Tiempo paralelo: 349.58
-2026-05-29 21:38:36 | INFO | Speedup: 1.341x
-2026-05-29 21:38:36 | INFO | [STEP 3] Ejecutando HPO con Bayesian Optimization...
-2026-05-29 21:38:36 | INFO | HPO usando muestra de 100000 filas para reducir tiempo
-2026-05-29 21:38:37 | INFO | Inicio de Bayesian Optimization para RandomForest
-2026-05-29 21:41:00 | INFO | HPO finalizado en 143.41 segundos
-2026-05-29 21:41:00 | INFO | Mejores parámetros: {'model__max_depth': 9, 'model__min_samples_leaf': 6, 'model__min_samples_split': 17, 'model__n_estimators': 85}
-2026-05-29 21:42:31 | INFO | [STEP 4] Seleccionando campeón con estabilidad OOT...
-2026-05-29 21:42:31 | INFO | ----------------------------------------------------------------------
-2026-05-29 21:42:31 | INFO | LEADERBOARD DE MODELOS
-2026-05-29 21:42:31 | INFO | Modelo                   AUC_train  AUC_test   AUC_oot    Gap        Estable
-2026-05-29 21:42:31 | INFO | GradientBoosting         0.8522     0.8302     0.8470     0.0168     OK
-2026-05-29 21:42:31 | INFO | RandomForest_HPO         0.8630     0.8229     0.8434     0.0205     OK
-2026-05-29 21:42:31 | INFO | RandomForest             0.8520     0.8218     0.8424     0.0205     OK
-2026-05-29 21:42:31 | INFO | LogisticRegression       0.8146     0.7982     0.8164     0.0183     OK
-2026-05-29 21:42:31 | INFO | ExtraTrees               0.8167     0.7919     0.8161     0.0242     OK
-2026-05-29 21:42:31 | INFO | Campeón seleccionado: GradientBoosting | ESTABLE
-2026-05-29 21:42:31 | INFO | [STEP 5] Guardando modelo y metadata...
-2026-05-29 21:42:31 | INFO | Modelo campeón guardado en: best_model\GradientBoosting_2026-05-29_21-42-31\model.pkl
-2026-05-29 21:42:31 | INFO | Registry actualizado -> v4: GradientBoosting
-2026-05-29 21:42:31 | INFO | Tablas de evidencia guardadas en reports/tables
-2026-05-29 21:42:31 | INFO | [STEP 6] Registrando experimentos...
-2026-05-29 21:42:34 | INFO | Experimentos registrados en MLflow: sqlite:///mlflow_store/mlflow.db
-2026-05-29 21:42:34 | INFO | ======================================================================
-2026-05-29 21:42:34 | INFO | PIPELINE COMPLETADO EXITOSAMENTE EN 1088.59 segundos
-2026-05-29 21:42:34 | INFO | ======================================================================
+2026-05-30 06:34:34 | INFO | ======================================================================
+2026-05-30 06:34:34 | INFO | PIPELINE DE ENTRENAMIENTO -- Parcial MLOps
+2026-05-30 06:34:34 | INFO | ======================================================================
+2026-05-30 06:34:34 | INFO | Config usado: config/config_completo.yaml
+2026-05-30 06:34:34 | INFO | Experimento: experimento_completo
+2026-05-30 06:34:34 | INFO | [STEP 1] Preparando datasets por periodos...
+2026-05-30 06:34:34 | INFO | Prioridad repositorio: descargando https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p1_extrac.csv
+2026-05-30 06:34:37 | INFO | Archivo descargado y guardado en: data/raw/training\p1_extrac.csv
+2026-05-30 06:34:38 | INFO | Periodo 1 cargado: (80000, 69)
+2026-05-30 06:34:38 | INFO | Prioridad repositorio: descargando https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p2_extrac.csv
+2026-05-30 06:34:42 | INFO | Archivo descargado y guardado en: data/raw/training\p2_extrac.csv
+2026-05-30 06:34:43 | INFO | Periodo 2 cargado: (80000, 69)
+2026-05-30 06:34:43 | INFO | Prioridad repositorio: descargando https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p3_extrac.csv
+2026-05-30 06:34:47 | INFO | Archivo descargado y guardado en: data/raw/training\p3_extrac.csv
+2026-05-30 06:34:48 | INFO | Periodo 3 cargado: (80000, 69)
+2026-05-30 06:34:48 | INFO | Prioridad repositorio: descargando https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p4_extrac.csv
+2026-05-30 06:34:51 | INFO | Archivo descargado y guardado en: data/raw/training\p4_extrac.csv
+2026-05-30 06:34:52 | INFO | Periodo 4 cargado: (80000, 69)
+2026-05-30 06:34:52 | INFO | Prioridad repositorio: descargando https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p5_extrac.csv
+2026-05-30 06:34:56 | INFO | Archivo descargado y guardado en: data/raw/training\p5_extrac.csv
+2026-05-30 06:34:57 | INFO | Periodo 5 cargado: (80000, 69)
+2026-05-30 06:34:57 | INFO | Prioridad repositorio: descargando https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p6_extrac.csv
+2026-05-30 06:35:01 | INFO | Archivo descargado y guardado en: data/raw/training\p6_extrac.csv
+2026-05-30 06:35:01 | INFO | Periodo 6 cargado: (80000, 69)
+2026-05-30 06:35:01 | INFO | Prioridad repositorio: descargando https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p7_extrac.csv
+2026-05-30 06:35:05 | INFO | Archivo descargado y guardado en: data/raw/training\p7_extrac.csv
+2026-05-30 06:35:06 | INFO | Periodo 7 cargado: (80000, 69)
+2026-05-30 06:35:06 | INFO | Prioridad repositorio: descargando https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p8_extrac.csv
+2026-05-30 06:35:10 | INFO | Archivo descargado y guardado en: data/raw/training\p8_extrac.csv
+2026-05-30 06:35:11 | INFO | Periodo 8 cargado: (80000, 69)
+2026-05-30 06:35:11 | INFO | Prioridad repositorio: descargando https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p9_extrac.csv
+2026-05-30 06:35:15 | INFO | Archivo descargado y guardado en: data/raw/training\p9_extrac.csv
+2026-05-30 06:35:15 | INFO | Periodo 9 cargado: (80000, 69)
+2026-05-30 06:35:42 | INFO | Train: (480000, 60) | tasa target 0.0327
+2026-05-30 06:35:42 | INFO | Valid: (80000, 60) | tasa target 0.0334
+2026-05-30 06:35:42 | INFO | OOT  : (160000, 60) | tasa target 0.0401
+2026-05-30 06:35:42 | INFO | [STEP 2] Entrenando modelos base...
+2026-05-30 06:43:59 | INFO | CPUs detectadas: 12
+2026-05-30 06:43:59 | INFO | Workers usados en paralelo: 4
+2026-05-30 06:43:59 | INFO | Modo de paralelismo: joblib.Parallel por modelo
+2026-05-30 06:50:02 | INFO | Modelo paralelo completado: LogisticRegression
+2026-05-30 06:50:02 | INFO | Modelo paralelo completado: RandomForest
+2026-05-30 06:50:02 | INFO | Modelo paralelo completado: ExtraTrees
+2026-05-30 06:50:02 | INFO | Modelo paralelo completado: GradientBoosting
+2026-05-30 06:50:02 | INFO | Tiempo secuencial: 496.78
+2026-05-30 06:50:02 | INFO | Tiempo paralelo: 363.54
+2026-05-30 06:50:02 | INFO | Speedup: 1.366x
+2026-05-30 06:50:03 | INFO | [STEP 3] Ejecutando HPO con Bayesian Optimization...
+2026-05-30 06:50:03 | INFO | HPO usando muestra de 100000 filas para reducir tiempo
+2026-05-30 06:50:03 | INFO | Inicio de Bayesian Optimization para RandomForest
+2026-05-30 06:52:31 | INFO | HPO finalizado en 148.72 segundos
+2026-05-30 06:52:31 | INFO | Mejores parámetros: {'model__max_depth': 9, 'model__min_samples_leaf': 6, 'model__min_samples_split': 17, 'model__n_estimators': 85}
+2026-05-30 06:53:56 | INFO | [STEP 4] Seleccionando campeón con estabilidad OOT...
+2026-05-30 06:53:56 | INFO | ----------------------------------------------------------------------
+2026-05-30 06:53:56 | INFO | LEADERBOARD DE MODELOS
+2026-05-30 06:53:56 | INFO | Modelo                   AUC_train  AUC_test   AUC_oot    Gap        Estable
+2026-05-30 06:53:56 | INFO | GradientBoosting         0.8522     0.8302     0.8470     0.0168     OK
+2026-05-30 06:53:56 | INFO | RandomForest_HPO         0.8630     0.8229     0.8434     0.0205     OK
+2026-05-30 06:53:56 | INFO | RandomForest             0.8520     0.8218     0.8424     0.0205     OK
+2026-05-30 06:53:56 | INFO | LogisticRegression       0.8146     0.7982     0.8164     0.0183     OK
+2026-05-30 06:53:56 | INFO | ExtraTrees               0.8167     0.7919     0.8161     0.0242     OK
+2026-05-30 06:53:56 | INFO | Campeón seleccionado: GradientBoosting | ESTABLE
+2026-05-30 06:53:56 | INFO | [STEP 5] Guardando modelo y metadata...
+2026-05-30 06:53:56 | INFO | Modelo campeón guardado en: best_model\GradientBoosting_2026-05-30_06-53-56\model.pkl
+2026-05-30 06:53:56 | INFO | Registry actualizado -> v8: GradientBoosting
+2026-05-30 06:53:56 | INFO | Tablas de evidencia guardadas en reports/tables
+2026-05-30 06:53:56 | INFO | [STEP 6] Registrando experimentos...
+2026-05-30 06:53:59 | INFO | Experimentos registrados en MLflow: sqlite:///mlflow_store/mlflow.db
+2026-05-30 06:53:59 | INFO | ======================================================================
+2026-05-30 06:53:59 | INFO | PIPELINE COMPLETADO EXITOSAMENTE EN 1164.80 segundos
+2026-05-30 06:53:59 | INFO | ======================================================================

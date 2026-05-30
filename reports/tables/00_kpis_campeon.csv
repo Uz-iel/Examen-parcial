@@ -1,2 +1,2 @@
 modelo_campeon,estado,auc_train,auc_test,auc_oot,auc_gap,umbral_clasificacion,stability_threshold,n_features,speedup,workers_usados
-GradientBoosting,ESTABLE,0.8522422165592239,0.8302371482587073,0.8470269890322796,0.016789840773572262,0.5,0.03,60,1.341,4
+GradientBoosting,ESTABLE,0.8522422165592239,0.8302371482587073,0.8470269890322796,0.016789840773572262,0.5,0.03,60,1.366,4

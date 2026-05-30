@@ -1,6 +1,6 @@
 {
     "champion": {
-        "version": "v4",
+        "version": "v8",
         "model_name": "GradientBoosting",
         "auc_train": 0.8522422165592239,
         "auc_test": 0.8302371482587073,
@@ -8,10 +8,10 @@
         "auc_gap": 0.016789840773572262,
         "stability": "ESTABLE",
         "n_features": 60,
-        "path": "best_model\\GradientBoosting_2026-05-29_21-42-31",
-        "model_path": "best_model\\GradientBoosting_2026-05-29_21-42-31\\model.pkl",
-        "metadata_path": "best_model\\GradientBoosting_2026-05-29_21-42-31\\metadata.json",
-        "registered_at": "2026-05-29 21:42:31"
+        "path": "best_model\\GradientBoosting_2026-05-30_06-53-56",
+        "model_path": "best_model\\GradientBoosting_2026-05-30_06-53-56\\model.pkl",
+        "metadata_path": "best_model\\GradientBoosting_2026-05-30_06-53-56\\metadata.json",
+        "registered_at": "2026-05-30 06:53:56"
     },
     "history": [
         {
@@ -55,6 +55,62 @@
             "model_path": "best_model\\GradientBoosting_2026-05-29_21-22-04\\model.pkl",
             "metadata_path": "best_model\\GradientBoosting_2026-05-29_21-22-04\\metadata.json",
             "registered_at": "2026-05-29 21:22:04"
+        },
+        {
+            "version": "v4",
+            "model_name": "GradientBoosting",
+            "auc_train": 0.8522422165592239,
+            "auc_test": 0.8302371482587073,
+            "auc_oot": 0.8470269890322796,
+            "auc_gap": 0.016789840773572262,
+            "stability": "ESTABLE",
+            "n_features": 60,
+            "path": "best_model\\GradientBoosting_2026-05-29_21-42-31",
+            "model_path": "best_model\\GradientBoosting_2026-05-29_21-42-31\\model.pkl",
+            "metadata_path": "best_model\\GradientBoosting_2026-05-29_21-42-31\\metadata.json",
+            "registered_at": "2026-05-29 21:42:31"
+        },
+        {
+            "version": "v5",
+            "model_name": "GradientBoosting",
+            "auc_train": 0.8744523974362579,
+            "auc_test": 0.8413916582304279,
+            "auc_oot": 0.8581664327120787,
+            "auc_gap": 0.016774774481650767,
+            "stability": "ESTABLE",
+            "n_features": 60,
+            "path": "best_model\\GradientBoosting_2026-05-29_23-59-17",
+            "model_path": "best_model\\GradientBoosting_2026-05-29_23-59-17\\model.pkl",
+            "metadata_path": "best_model\\GradientBoosting_2026-05-29_23-59-17\\metadata.json",
+            "registered_at": "2026-05-29 23:59:17"
+        },
+        {
+            "version": "v6",
+            "model_name": "GradientBoosting",
+            "auc_train": 0.8522422165592239,
+            "auc_test": 0.8302371482587073,
+            "auc_oot": 0.8470269890322796,
+            "auc_gap": 0.016789840773572262,
+            "stability": "ESTABLE",
+            "n_features": 60,
+            "path": "best_model\\GradientBoosting_2026-05-30_00-17-36",
+            "model_path": "best_model\\GradientBoosting_2026-05-30_00-17-36\\model.pkl",
+            "metadata_path": "best_model\\GradientBoosting_2026-05-30_00-17-36\\metadata.json",
+            "registered_at": "2026-05-30 00:17:36"
+        },
+        {
+            "version": "v7",
+            "model_name": "GradientBoosting",
+            "auc_train": 0.8744523974362579,
+            "auc_test": 0.8413916582304279,
+            "auc_oot": 0.8581664327120787,
+            "auc_gap": 0.016774774481650767,
+            "stability": "ESTABLE",
+            "n_features": 60,
+            "path": "best_model\\GradientBoosting_2026-05-30_06-33-55",
+            "model_path": "best_model\\GradientBoosting_2026-05-30_06-33-55\\model.pkl",
+            "metadata_path": "best_model\\GradientBoosting_2026-05-30_06-33-55\\metadata.json",
+            "registered_at": "2026-05-30 06:33:55"
         }
     ]
 }

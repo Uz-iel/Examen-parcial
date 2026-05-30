@@ -1,0 +1,10 @@
+﻿KPI,Valor
+Modelo campeón,GradientBoosting
+AUC OOT,0.847
+Gap OOT,0.0168
+Lift D1,5.1x
+Tasa D1,13.3%
+Captura D1-D3,N/D
+Data experimento,720.000 filas
+Variables,69 vars / 9 familias
+Tiempo inferencia,12.0s

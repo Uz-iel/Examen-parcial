@@ -1,2 +1,2 @@
 cpus_detectadas,workers_usados,tiempo_secuencial_s,tiempo_paralelo_s,speedup
-12,4,468.918,349.579,1.341
+12,4,496.775,363.541,1.366

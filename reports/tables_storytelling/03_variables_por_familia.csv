@@ -1,0 +1,10 @@
+﻿familia,cantidad_variables,ejemplos
+"Saldos, deuda y consumo",15,"sldvig_tcrsrcf, cre_sldtotfinprm03, monto_consumos_ecommerce_tc, avg_sald_pas_3m"
+Campañas y contacto,13,"ctd_campecsm01, max_campecs06m, ctd_camptotm01, ctd_camptot06m"
+Productos y actividad,11,"ant_ultprdallsf, nro_configuracion_6m, nro_transfer_6m, nro_producto_6m"
+"Tarjeta, línea y crédito",9,"cre_lin_tc_rccibk_m07, lin_tcrrstsf03m, max_usotcribksf06m, max_usotcrrstsf03m"
+Canales y transacciones,7,"prm_cnt_fee_amt_u7d, prop_atm_4m, cnl_atm_p4m_p12m, cnl_age_p4m_p12m"
+Identificación y negocio,6,"partition, key_value, codunicocli, monto"
+"Ingreso, tasa y valor económico",3,"tea, ingreso_neto, mnt_ptm"
+Variable categórica principal,3,"ent_1erlntcrallsfm01, ent_1erlntcrallsfm01_INTERBANK, ent_1erlntcrallsfm01_OTRO"
+Fechas y trazabilidad,2,"fch_creacion, p_fecinformacion"

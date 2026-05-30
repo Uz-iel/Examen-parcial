@@ -1,0 +1,4 @@
+﻿log,conjunto,filas,columnas_modelo,tasa_target
+training_2026-05-30_00-00-22.log,entrenamiento,480000,60,0.0327
+training_2026-05-30_00-00-22.log,validación,80000,60,0.0334
+training_2026-05-30_00-00-22.log,OOT,160000,60,0.0401

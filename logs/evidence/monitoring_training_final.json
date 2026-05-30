@@ -1,35 +1,35 @@
 {
     "nombre": "training_pipeline",
     "estado": "OK",
-    "tiempo_total_segundos": 1088.586,
+    "tiempo_total_segundos": 1164.804,
     "registros": 480000,
-    "latencia_segundos_por_registro": 0.00226789,
-    "cpu_inicio_percent": 28.7,
-    "cpu_fin_percent": 34.7,
-    "memoria_inicio_mb": 132.992,
-    "memoria_fin_mb": 542.578,
+    "latencia_segundos_por_registro": 0.00242668,
+    "cpu_inicio_percent": 17.9,
+    "cpu_fin_percent": 56.5,
+    "memoria_inicio_mb": 132.582,
+    "memoria_fin_mb": 544.812,
     "eventos": [
         {
             "evento": "datasets_preparados",
-            "tiempo_segundos": 32.735,
-            "cpu_percent": 8.3,
-            "memoria_mb": 476.988,
+            "tiempo_segundos": 68.328,
+            "cpu_percent": 23.4,
+            "memoria_mb": 480.344,
             "extra": {}
         },
         {
             "evento": "modelos_base_entrenados",
-            "tiempo_segundos": 851.336,
-            "cpu_percent": 11.5,
-            "memoria_mb": 723.281,
+            "tiempo_segundos": 928.75,
+            "cpu_percent": 4.2,
+            "memoria_mb": 727.125,
             "extra": {
-                "speedup": 1.3413798034827606
+                "speedup": 1.366491075774106
             }
         },
         {
             "evento": "hpo_finalizado",
-            "tiempo_segundos": 1085.883,
-            "cpu_percent": 35.7,
-            "memoria_mb": 499.684,
+            "tiempo_segundos": 1161.757,
+            "cpu_percent": 7.1,
+            "memoria_mb": 504.957,
             "extra": {}
         }
     ]

@@ -1,0 +1,470 @@
+{
+    "model_name": "GradientBoosting",
+    "registered_at": "2026-05-30 06:53:56",
+    "model_dir": "best_model\\GradientBoosting_2026-05-30_06-53-56",
+    "model_path": "best_model\\GradientBoosting_2026-05-30_06-53-56\\model.pkl",
+    "metadata_path": "best_model\\GradientBoosting_2026-05-30_06-53-56\\metadata.json",
+    "stability": "ESTABLE",
+    "auc_train": 0.8522422165592239,
+    "auc_test": 0.8302371482587073,
+    "auc_oot": 0.8470269890322796,
+    "auc_gap": 0.016789840773572262,
+    "metricas_train": {
+        "auc": 0.8522422165592239,
+        "accuracy": 0.9673833333333334,
+        "precision": 0.6923076923076923,
+        "recall": 0.005730294155099962,
+        "f1": 0.011366506693609498,
+        "umbral": 0.5
+    },
+    "metricas_test": {
+        "auc": 0.8302371482587073,
+        "accuracy": 0.9664625,
+        "precision": 0.2,
+        "recall": 0.0011219147344801795,
+        "f1": 0.002231312755671253,
+        "umbral": 0.5
+    },
+    "metricas_oot": {
+        "auc": 0.8470269890322796,
+        "accuracy": 0.95988125,
+        "precision": 0.4358974358974359,
+        "recall": 0.0026504521359526035,
+        "f1": 0.005268867193553386,
+        "umbral": 0.5
+    },
+    "umbral_clasificacion": 0.5,
+    "stability_threshold": 0.03,
+    "features": [
+        "nro_producto_6m",
+        "prom_uso_tc_rccsf3m",
+        "ctd_sms_received",
+        "max_usotcribksf06m",
+        "ctd_camptot06m",
+        "dsv_svppallsf06m",
+        "prm_svprmecs06m",
+        "ctd_app_productos_m1",
+        "ctd_campecsm01",
+        "lin_tcrrstsf03m",
+        "mnt_ptm",
+        "dif_no_gestionado_4meses",
+        "max_campecs06m",
+        "beta_pctusotcr12m",
+        "rat_disefepnm01",
+        "flg_saltotppe12m",
+        "prom_sow_lintcribksf3m",
+        "openhtml_1m",
+        "nprod_1m",
+        "nro_transfer_6m",
+        "max_usotcrrstsf03m",
+        "prm_cnt_fee_amt_u7d",
+        "pas_avg6m_max12m",
+        "beta_saltotppe12m",
+        "seg_un",
+        "ant_ultprdallsf",
+        "avg_sald_pas_3m",
+        "pas_1m_avg3m",
+        "num_incrsaldispefe06m",
+        "cnl_age_p4m_p12m",
+        "cnl_atm_p4m_p12m",
+        "cre_lin_tc_rccibk_m07",
+        "prm_svprmlibdis06m",
+        "ingreso_neto",
+        "max_nact_12m",
+        "cre_sldtotfinprm03",
+        "dif_contacto_efectivo_10meses",
+        "act_1m_avg3m",
+        "monto_consumos_ecommerce_tc",
+        "ctd_camptotm01",
+        "prop_atm_4m",
+        "prom_pct_saldopprcc6m",
+        "apppag_1m",
+        "nro_configuracion_6m",
+        "act_avg6m_max12m",
+        "sldvig_tcrsrcf",
+        "prom_score_acepta_12meses",
+        "telefonos_6meses",
+        "pas_1m_avg6m",
+        "ctd_camptototrcnl06m",
+        "prm_saltotrdpj03m",
+        "bpitrx_1m",
+        "prm_lintcribksf03m",
+        "ctd_entrdm01",
+        "avg_openhtml_6m",
+        "tea",
+        "pct_usotcrm01",
+        "senthtml_1m",
+        "ent_1erlntcrallsfm01_INTERBANK",
+        "ent_1erlntcrallsfm01_OTRO"
+    ],
+    "n_features": 60,
+    "experimento": {
+        "nombre": "experimento_completo",
+        "descripcion": "Corrida completa con más periodos, OOT más robusto y HPO con muestra mayor. Usa data real desde Git solo si no existe localmente."
+    },
+    "candidatos": [
+        {
+            "nombre": "LogisticRegression",
+            "metricas_train": {
+                "auc": 0.8146148480489258,
+                "accuracy": 0.7330895833333333,
+                "precision": 0.08667867779534508,
+                "recall": 0.750477524512925,
+                "f1": 0.15540803343639373,
+                "umbral": 0.5
+            },
+            "metricas_test": {
+                "auc": 0.7981843028430989,
+                "accuracy": 0.7019125,
+                "precision": 0.08071606796308765,
+                "recall": 0.7621540762902019,
+                "f1": 0.14597285391970777,
+                "umbral": 0.5
+            },
+            "metricas_oot": {
+                "auc": 0.8164485426505739,
+                "accuracy": 0.7175875,
+                "precision": 0.10165207742571816,
+                "recall": 0.7712815715622077,
+                "f1": 0.17962962962962964,
+                "umbral": 0.5
+            },
+            "auc_test": 0.7981843028430989,
+            "auc_oot": 0.8164485426505739,
+            "auc_gap": 0.018264239807474936,
+            "tiempo_fit_s": 11.195,
+            "params": {
+                "memory": null,
+                "steps": [
+                    [
+                        "scaler",
+                        "StandardScaler()"
+                    ],
+                    [
+                        "model",
+                        "LogisticRegression(C=0.1, class_weight='balanced', max_iter=500,\n                   random_state=42)"
+                    ]
+                ],
+                "verbose": false,
+                "scaler": "StandardScaler()",
+                "model": "LogisticRegression(C=0.1, class_weight='balanced', max_iter=500,\n                   random_state=42)",
+                "scaler__copy": true,
+                "scaler__with_mean": true,
+                "scaler__with_std": true,
+                "model__C": 0.1,
+                "model__class_weight": "balanced",
+                "model__dual": false,
+                "model__fit_intercept": true,
+                "model__intercept_scaling": 1,
+                "model__l1_ratio": null,
+                "model__max_iter": 500,
+                "model__multi_class": "deprecated",
+                "model__n_jobs": null,
+                "model__penalty": "l2",
+                "model__random_state": 42,
+                "model__solver": "lbfgs",
+                "model__tol": 0.0001,
+                "model__verbose": 0,
+                "model__warm_start": false
+            },
+            "stability": "ESTABLE"
+        },
+        {
+            "nombre": "RandomForest",
+            "metricas_train": {
+                "auc": 0.8520378544078324,
+                "accuracy": 0.7629708333333334,
+                "precision": 0.10044002607561929,
+                "recall": 0.7847956195084681,
+                "f1": 0.1780879314579631,
+                "umbral": 0.5
+            },
+            "metricas_test": {
+                "auc": 0.821806465244399,
+                "accuracy": 0.729925,
+                "precision": 0.08847056777671507,
+                "recall": 0.7610321615557217,
+                "f1": 0.158513787194267,
+                "umbral": 0.5
+            },
+            "metricas_oot": {
+                "auc": 0.8423524212964547,
+                "accuracy": 0.75465625,
+                "precision": 0.1157419324643718,
+                "recall": 0.771125662613034,
+                "f1": 0.2012737298309154,
+                "umbral": 0.5
+            },
+            "auc_test": 0.821806465244399,
+            "auc_oot": 0.8423524212964547,
+            "auc_gap": 0.02054595605205567,
+            "tiempo_fit_s": 128.075,
+            "params": {
+                "memory": null,
+                "steps": [
+                    [
+                        "scaler",
+                        "StandardScaler()"
+                    ],
+                    [
+                        "model",
+                        "RandomForestClassifier(class_weight='balanced', max_depth=8, n_jobs=1,\n                       random_state=42)"
+                    ]
+                ],
+                "verbose": false,
+                "scaler": "StandardScaler()",
+                "model": "RandomForestClassifier(class_weight='balanced', max_depth=8, n_jobs=1,\n                       random_state=42)",
+                "scaler__copy": true,
+                "scaler__with_mean": true,
+                "scaler__with_std": true,
+                "model__bootstrap": true,
+                "model__ccp_alpha": 0.0,
+                "model__class_weight": "balanced",
+                "model__criterion": "gini",
+                "model__max_depth": 8,
+                "model__max_features": "sqrt",
+                "model__max_leaf_nodes": null,
+                "model__max_samples": null,
+                "model__min_impurity_decrease": 0.0,
+                "model__min_samples_leaf": 1,
+                "model__min_samples_split": 2,
+                "model__min_weight_fraction_leaf": 0.0,
+                "model__monotonic_cst": null,
+                "model__n_estimators": 100,
+                "model__n_jobs": 1,
+                "model__oob_score": false,
+                "model__random_state": 42,
+                "model__verbose": 0,
+                "model__warm_start": false
+            },
+            "stability": "ESTABLE"
+        },
+        {
+            "nombre": "ExtraTrees",
+            "metricas_train": {
+                "auc": 0.8167494952282974,
+                "accuracy": 0.7062333333333334,
+                "precision": 0.08157908797050731,
+                "recall": 0.7777282567171782,
+                "f1": 0.14766861301514767,
+                "umbral": 0.5
+            },
+            "metricas_test": {
+                "auc": 0.7918592956094481,
+                "accuracy": 0.6773375,
+                "precision": 0.07541561158207641,
+                "recall": 0.7685115931189229,
+                "f1": 0.13735253818133208,
+                "umbral": 0.5
+            },
+            "metricas_oot": {
+                "auc": 0.8160873942576529,
+                "accuracy": 0.7010875,
+                "precision": 0.09742582727378776,
+                "recall": 0.7812597443093233,
+                "f1": 0.17324713041073156,
+                "umbral": 0.5
+            },
+            "auc_test": 0.7918592956094481,
+            "auc_oot": 0.8160873942576529,
+            "auc_gap": 0.024228098648204743,
+            "tiempo_fit_s": 80.165,
+            "params": {
+                "memory": null,
+                "steps": [
+                    [
+                        "scaler",
+                        "StandardScaler()"
+                    ],
+                    [
+                        "model",
+                        "ExtraTreesClassifier(class_weight='balanced', max_depth=8, n_jobs=1,\n                     random_state=42)"
+                    ]
+                ],
+                "verbose": false,
+                "scaler": "StandardScaler()",
+                "model": "ExtraTreesClassifier(class_weight='balanced', max_depth=8, n_jobs=1,\n                     random_state=42)",
+                "scaler__copy": true,
+                "scaler__with_mean": true,
+                "scaler__with_std": true,
+                "model__bootstrap": false,
+                "model__ccp_alpha": 0.0,
+                "model__class_weight": "balanced",
+                "model__criterion": "gini",
+                "model__max_depth": 8,
+                "model__max_features": "sqrt",
+                "model__max_leaf_nodes": null,
+                "model__max_samples": null,
+                "model__min_impurity_decrease": 0.0,
+                "model__min_samples_leaf": 1,
+                "model__min_samples_split": 2,
+                "model__min_weight_fraction_leaf": 0.0,
+                "model__monotonic_cst": null,
+                "model__n_estimators": 100,
+                "model__n_jobs": 1,
+                "model__oob_score": false,
+                "model__random_state": 42,
+                "model__verbose": 0,
+                "model__warm_start": false
+            },
+            "stability": "ESTABLE"
+        },
+        {
+            "nombre": "GradientBoosting",
+            "metricas_train": {
+                "auc": 0.8522422165592239,
+                "accuracy": 0.9673833333333334,
+                "precision": 0.6923076923076923,
+                "recall": 0.005730294155099962,
+                "f1": 0.011366506693609498,
+                "umbral": 0.5
+            },
+            "metricas_test": {
+                "auc": 0.8302371482587073,
+                "accuracy": 0.9664625,
+                "precision": 0.2,
+                "recall": 0.0011219147344801795,
+                "f1": 0.002231312755671253,
+                "umbral": 0.5
+            },
+            "metricas_oot": {
+                "auc": 0.8470269890322796,
+                "accuracy": 0.95988125,
+                "precision": 0.4358974358974359,
+                "recall": 0.0026504521359526035,
+                "f1": 0.005268867193553386,
+                "umbral": 0.5
+            },
+            "auc_test": 0.8302371482587073,
+            "auc_oot": 0.8470269890322796,
+            "auc_gap": 0.016789840773572262,
+            "tiempo_fit_s": 361.115,
+            "params": {
+                "memory": null,
+                "steps": [
+                    [
+                        "scaler",
+                        "StandardScaler()"
+                    ],
+                    [
+                        "model",
+                        "GradientBoostingClassifier(max_depth=4, n_estimators=80, random_state=42)"
+                    ]
+                ],
+                "verbose": false,
+                "scaler": "StandardScaler()",
+                "model": "GradientBoostingClassifier(max_depth=4, n_estimators=80, random_state=42)",
+                "scaler__copy": true,
+                "scaler__with_mean": true,
+                "scaler__with_std": true,
+                "model__ccp_alpha": 0.0,
+                "model__criterion": "friedman_mse",
+                "model__init": null,
+                "model__learning_rate": 0.1,
+                "model__loss": "log_loss",
+                "model__max_depth": 4,
+                "model__max_features": null,
+                "model__max_leaf_nodes": null,
+                "model__min_impurity_decrease": 0.0,
+                "model__min_samples_leaf": 1,
+                "model__min_samples_split": 2,
+                "model__min_weight_fraction_leaf": 0.0,
+                "model__n_estimators": 80,
+                "model__n_iter_no_change": null,
+                "model__random_state": 42,
+                "model__subsample": 1.0,
+                "model__tol": 0.0001,
+                "model__validation_fraction": 0.1,
+                "model__verbose": 0,
+                "model__warm_start": false
+            },
+            "stability": "ESTABLE"
+        },
+        {
+            "nombre": "RandomForest_HPO",
+            "metricas_train": {
+                "auc": 0.8630465834995122,
+                "accuracy": 0.7768479166666666,
+                "precision": 0.1070037404875532,
+                "recall": 0.7923086718451547,
+                "f1": 0.18854402618161983,
+                "umbral": 0.5
+            },
+            "metricas_test": {
+                "auc": 0.82293719655011,
+                "accuracy": 0.7436625,
+                "precision": 0.09145475372279496,
+                "recall": 0.7464472700074795,
+                "f1": 0.16294542634393241,
+                "umbral": 0.5
+            },
+            "metricas_oot": {
+                "auc": 0.8434307238532562,
+                "accuracy": 0.7694,
+                "precision": 0.1207196894286283,
+                "recall": 0.7563143124415341,
+                "f1": 0.20820636078801666,
+                "umbral": 0.5
+            },
+            "auc_test": 0.82293719655011,
+            "auc_oot": 0.8434307238532562,
+            "auc_gap": 0.02049352730314624,
+            "tiempo_fit_s": 77.763,
+            "params": {
+                "memory": null,
+                "steps": [
+                    [
+                        "scaler",
+                        "StandardScaler()"
+                    ],
+                    [
+                        "model",
+                        "RandomForestClassifier(class_weight='balanced', max_depth=9, min_samples_leaf=6,\n                       min_samples_split=17, n_estimators=85, n_jobs=1,\n                       random_state=42)"
+                    ]
+                ],
+                "verbose": false,
+                "scaler": "StandardScaler()",
+                "model": "RandomForestClassifier(class_weight='balanced', max_depth=9, min_samples_leaf=6,\n                       min_samples_split=17, n_estimators=85, n_jobs=1,\n                       random_state=42)",
+                "scaler__copy": true,
+                "scaler__with_mean": true,
+                "scaler__with_std": true,
+                "model__bootstrap": true,
+                "model__ccp_alpha": 0.0,
+                "model__class_weight": "balanced",
+                "model__criterion": "gini",
+                "model__max_depth": 9,
+                "model__max_features": "sqrt",
+                "model__max_leaf_nodes": null,
+                "model__max_samples": null,
+                "model__min_impurity_decrease": 0.0,
+                "model__min_samples_leaf": 6,
+                "model__min_samples_split": 17,
+                "model__min_weight_fraction_leaf": 0.0,
+                "model__monotonic_cst": null,
+                "model__n_estimators": 85,
+                "model__n_jobs": 1,
+                "model__oob_score": false,
+                "model__random_state": 42,
+                "model__verbose": 0,
+                "model__warm_start": false
+            },
+            "tiempo_hpo_s": 148.72,
+            "mejores_parametros": {
+                "model__max_depth": 9,
+                "model__min_samples_leaf": 6,
+                "model__min_samples_split": 17,
+                "model__n_estimators": 85
+            },
+            "best_score_hpo": 0.826351838674892,
+            "stability": "ESTABLE"
+        }
+    ],
+    "mejores_parametros": {},
+    "speedup": {
+        "cpus_detectadas": 12,
+        "workers_usados": 4,
+        "tiempo_secuencial_s": 496.775,
+        "tiempo_paralelo_s": 363.541,
+        "speedup": 1.366
+    }
+}
