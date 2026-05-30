@@ -1,5 +1,5 @@
-# Configuración base rápida 
-# Es la configuración default usada por training_pipeline.py.
+# Configuración rápida por defecto
+
 
 proyecto:
   nombre: "Parcial MLOps - Propensión de venta bancaria"
@@ -8,16 +8,25 @@ proyecto:
 
 experimento:
   nombre: "experimento_base_rapido"
-  descripcion: "Corrida liviana para validar el flujo completo en pocos minutos. Usa data real desde Git si no existe localmente."
+  descripcion: "Corrida rápida con data real. Busca CSV locales y, si faltan, intenta descargarlos desde url_base."
 
 data:
+
   url_base: "https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data"
   archivo_periodo: "p{period}_extrac.csv"
+
   raw_training_dir: "data/raw/training"
   raw_inference_dir: "data/raw/inference"
   processed_training_dir: "data/processed/training"
   processed_inference_dir: "data/processed/inference"
+
+  # true: si falta un CSV local, intenta descargarlo.
   auto_download: true
+
+  # false: si el CSV ya existe localmente, lo reutiliza y NO lo descarga otra vez.
+  force_download: false
+
+  # Versión rápida: limita filas para que el profesor pueda probar en menos tiempo.
   limite_filas_por_periodo: 30000
   limite_filas_inferencia: 30000
 
@@ -55,3 +64,4 @@ paths:
 mlflow:
   tracking_uri: "sqlite:///mlflow_store/mlflow.db"
   experiment_name: "parcial_mlops_propension"
+  inference_experiment_name: "parcial_mlops_inferencia"

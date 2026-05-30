@@ -8,16 +8,21 @@ proyecto:
 
 experimento:
   nombre: "experimento_completo"
-  descripcion: "Corrida completa con más periodos, OOT más robusto y HPO con muestra mayor. Usa data real desde Git si no existe localmente."
+  descripcion: "Corrida completa con más periodos, OOT más robusto y HPO con muestra mayor. Usa data real desde Git solo si no existe localmente."
 
 data:
+  
   url_base: "https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data"
   archivo_periodo: "p{period}_extrac.csv"
+
   raw_training_dir: "data/raw/training"
   raw_inference_dir: "data/raw/inference"
   processed_training_dir: "data/processed/training"
   processed_inference_dir: "data/processed/inference"
+
   auto_download: true
+  force_download: false
+
   limite_filas_por_periodo: 80000
   limite_filas_inferencia: 80000
 
@@ -55,3 +60,4 @@ paths:
 mlflow:
   tracking_uri: "sqlite:///mlflow_store/mlflow.db"
   experiment_name: "parcial_mlops_propension"
+  inference_experiment_name: "parcial_mlops_inferencia"

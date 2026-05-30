@@ -8,18 +8,22 @@ proyecto:
 
 experimento:
   nombre: "experimento_sintetico"
-  descripcion: "Prueba técnica reproducible con data sintética compatible con el pipeline. No reemplaza la data real del caso."
+  descripcion: "Corrida de validación técnica con data sintética compatible con el pipeline."
 
 data:
   url_base: ""
   archivo_periodo: "p{period}_extrac.csv"
+
   raw_training_dir: "data/raw/training"
   raw_inference_dir: "data/raw/inference"
   processed_training_dir: "data/processed/training"
   processed_inference_dir: "data/processed/inference"
+
   auto_download: false
-  limite_filas_por_periodo: 0
-  limite_filas_inferencia: 0
+  force_download: false
+
+  limite_filas_por_periodo: 8000
+  limite_filas_inferencia: 8000
 
 periodos:
   entrenamiento: [1, 2, 3, 4, 5, 6]
@@ -33,7 +37,7 @@ training:
   stability_threshold: 0.03
   cv_folds: 2
   bayesian_n_iter: 2
-  hpo_sample_size: 15000
+  hpo_sample_size: 8000
   max_workers: 4
 
 postprocessing:
@@ -55,3 +59,4 @@ paths:
 mlflow:
   tracking_uri: "sqlite:///mlflow_store/mlflow.db"
   experiment_name: "parcial_mlops_propension"
+  inference_experiment_name: "parcial_mlops_inferencia"

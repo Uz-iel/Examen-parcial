@@ -1,4 +1,4 @@
-"""Preprocesamiento para entrenamiento e inferencia."""
+"""Preprocesamiento simple y reproducible para entrenamiento e inferencia."""
 
 from __future__ import annotations
 
@@ -27,7 +27,8 @@ def buscar_o_descargar_periodo(periodo: int | str, carpeta: str, config: dict, l
     nombre = config["data"].get("archivo_periodo", "p{period}_extrac.csv").format(period=periodo)
     path = os.path.join(carpeta, nombre)
 
-    if os.path.exists(path):
+    force_download = bool(config["data"].get("force_download", False))
+    if os.path.exists(path) and not force_download:
         logger.info("Archivo encontrado: %s", path)
         return path
 
@@ -35,6 +36,8 @@ def buscar_o_descargar_periodo(periodo: int | str, carpeta: str, config: dict, l
     url = construir_url_periodo(config, periodo)
     if auto_download and url:
         try:
+            if force_download and os.path.exists(path):
+                logger.info("force_download=true. Se reemplazará el archivo local: %s", path)
             logger.info("Descargando: %s", url)
             urlretrieve(url, path)
             return path
@@ -101,6 +104,7 @@ def completar_columnas_post(df: pd.DataFrame) -> pd.DataFrame:
 def procesar_variables(df: pd.DataFrame, incluir_target: bool = True, logger=None) -> tuple[pd.DataFrame, pd.Series | None, pd.DataFrame]:
     """Convierte data cruda en matriz de modelo, target y columnas de negocio.
 
+    Regla de 69 a 60:
     - El diccionario trae 69 campos originales.
     - No se usan como predictoras directas: target, identificadores, fechas y variables de negocio para TLV.
     - Quedan 58 variables numéricas + 2 dummies de la categórica ent_1erlntcrallsfm01 = 60 features finales.
