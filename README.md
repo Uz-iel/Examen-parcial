@@ -344,6 +344,173 @@ Comando con archivo externo:
 python inference_pipeline.py --input-file "C:\ruta\archivo_profesor.csv" --skip-mlflow
 ```
 
+## 12.1. Inferencia con archivos nuevos 
+
+El pipeline permite ejecutar inferencia con archivos nuevos sin modificar el código ni cambiar los archivos YAML.
+
+Esto sirve para que el profesor pueda probar el modelo con una base nueva, ya sea usando un archivo con formato de periodo o un archivo con cualquier otro nombre.
+
+---
+
+### Caso A: archivo nuevo con formato de periodo
+
+Si se entrega un archivo con nombre tipo:
+
+```text
+p11_extrac.csv
+p12_extrac.csv
+p20_extrac.csv
+```
+
+se debe colocar en:
+
+```text
+data/raw/inference/
+```
+
+Ejemplo en PowerShell:
+
+```powershell
+Copy-Item "C:\ruta_\p11_extrac.csv" "data\raw\inference\p11_extrac.csv" -Force
+python inference_pipeline.py --period 11 --skip-mlflow
+```
+
+Con configuración completa:
+
+```powershell
+Copy-Item "C:\ruta_\p11_extrac.csv" "data\raw\inference\p11_extrac.csv" -Force
+python inference_pipeline.py --config config/config_completo.yaml --period 11 --skip-mlflow
+```
+
+En este caso, el pipeline buscará:
+
+```text
+data/raw/inference/p11_extrac.csv
+```
+
+Si no encuentra el archivo localmente, intentará descargarlo desde la URL configurada en `url_base`.
+
+---
+
+### Caso B: archivo nuevo con cualquier otro nombre
+
+Si se entrega un archivo con otro nombre, por ejemplo:
+
+```text
+archivo_x.csv
+base_nueva_clientes.csv
+campania_mayo.csv
+```
+
+no es necesario cambiar el nombre ni moverlo a una carpeta específica. Se usa el argumento `--input-file`:
+
+```powershell
+python inference_pipeline.py --input-file "C:\ruta_\archivo_x.csv" --skip-mlflow
+```
+
+Con configuración completa:
+
+```powershell
+python inference_pipeline.py --config config/config_completo.yaml --input-file "C:\ruta_\archivo_x.csv" --skip-mlflow
+```
+
+---
+
+### Qué ocurre internamente
+
+```text
+1. El pipeline carga el modelo campeón desde best_model/registry.json.
+2. Lee el archivo nuevo.
+3. Aplica el mismo preprocesamiento usado en entrenamiento.
+4. Alinea las columnas con las features guardadas en metadata.json.
+5. Genera probabilidad_modelo.
+6. Calcula TLV.
+7. Asigna grupos de ejecución.
+8. Guarda scores y réplica comercial.
+```
+
+La inferencia no reentrena el modelo. Solo usa el campeón ya registrado.
+
+---
+
+### Si el archivo  tiene target
+
+Si el archivo incluye la columna `target`, el pipeline la ignora para predecir y la conserva solo para evaluación offline.
+
+En ese caso también genera métricas de deciles y lift:
+
+```text
+output/evaluacion_offline_deciles_lift_<periodo>.csv
+reports/tables/08_deciles_lift_<periodo>.csv
+```
+
+Esto permite validar qué tan bien priorizó el modelo sobre una base nueva con resultado conocido.
+
+---
+
+### Si el archivo  no tiene target
+
+Si el archivo no tiene `target`, el pipeline genera normalmente:
+
+```text
+output/scores_<periodo>.csv
+output/replica_<modelo>_<periodo>.txt
+```
+
+En este caso no calcula lift offline, porque no existe variable real para comparar.
+
+---
+
+### Ejemplos rápidos
+
+Archivo nuevo con periodo 11:
+
+```powershell
+Copy-Item "C:\ruta_\p11_extrac.csv" "data\raw\inference\p11_extrac.csv" -Force
+python inference_pipeline.py --period 11 --skip-mlflow
+```
+
+Archivo nuevo con cualquier nombre:
+
+```powershell
+python inference_pipeline.py --input-file "C:\ruta_\basex.csv" --skip-mlflow
+```
+
+Archivo nuevo con configuración completa:
+
+```powershell
+python inference_pipeline.py --config config/config_completo.yaml --input-file "C:\ruta_\basex.csv" --skip-mlflow
+```
+
+---
+
+### Archivos generados
+
+Después de ejecutar inferencia, los resultados quedan en:
+
+```text
+output/
+reports/tables/
+logs/
+```
+
+Los archivos más importantes son:
+
+```text
+output/scores_<periodo>.csv
+output/replica_<modelo>_<periodo>.txt
+logs/inference_<fecha>.log
+logs/monitoring_inference_<fecha>.json
+```
+
+Si el archivo tiene `target`, también se genera:
+
+```text
+output/evaluacion_offline_deciles_lift_<periodo>.csv
+reports/tables/08_deciles_lift_<periodo>.csv
+```
+
+---
 ---
 
 ## 13. Model Registry
