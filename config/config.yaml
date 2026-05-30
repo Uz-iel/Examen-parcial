@@ -11,7 +11,7 @@ experimento:
 
 data:
 
-  url_base: "https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data"
+  url_base: "https://media.githubusercontent.com/media/Uz-iel/MLOps/main"
   archivo_periodo: "p{period}_extrac.csv"
 
   raw_training_dir: "data/raw/training"

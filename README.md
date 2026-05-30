@@ -60,10 +60,10 @@ La data sintética no se usa automáticamente en las corridas real/rápida/compl
 Para que la descarga automática funcione, los archivos deben existir en la URL configurada:
 
 ```text
-https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data/p1_extrac.csv
-https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data/p2_extrac.csv
+https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p1_extrac.csv
+https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p2_extrac.csv
 ...
-https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data/p10_extrac.csv
+https://media.githubusercontent.com/media/Uz-iel/MLOps/main/p10_extrac.csv
 ```
 
 Si esos archivos no están publicados en esa ruta, aparecerá `HTTP Error 404`. Para que la descarga por defecto funcione, los CSV reales deben estar publicados en el repositorio o en una ubicación compatible con `url_base`. Si no se publican, se debe colocar la data manualmente o usar el modo sintético.
