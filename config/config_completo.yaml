@@ -1,0 +1,57 @@
+# Configuración completa 
+
+
+proyecto:
+  nombre: "Parcial MLOps - Propensión de venta bancaria"
+  autor: "Gariazzo Anarcaya, Uzziell Neyrho"
+  random_state: 42
+
+experimento:
+  nombre: "experimento_completo"
+  descripcion: "Corrida completa con más periodos, OOT más robusto y HPO con muestra mayor. Usa data real desde Git si no existe localmente."
+
+data:
+  url_base: "https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data"
+  archivo_periodo: "p{period}_extrac.csv"
+  raw_training_dir: "data/raw/training"
+  raw_inference_dir: "data/raw/inference"
+  processed_training_dir: "data/processed/training"
+  processed_inference_dir: "data/processed/inference"
+  auto_download: true
+  limite_filas_por_periodo: 80000
+  limite_filas_inferencia: 80000
+
+periodos:
+  entrenamiento: [1, 2, 3, 4, 5, 6]
+  validacion: [7]
+  oot: [8, 9]
+  inferencia_demo: 10
+
+training:
+  modelos: ["LogisticRegression", "RandomForest", "ExtraTrees", "GradientBoosting"]
+  umbral_clasificacion: 0.50
+  stability_threshold: 0.03
+  cv_folds: 3
+  bayesian_n_iter: 4
+  hpo_sample_size: 100000
+  max_workers: 4
+
+postprocessing:
+  n_grupos_ejecucion: 10
+  frescura_default: 0.004
+  frescura_map:
+    G1: 0.066
+    G2: 0.028
+    G3: 0.022
+    G4: 0.008
+    G5: 0.004
+    OTRO: 0.004
+
+paths:
+  logs_dir: "logs"
+  output_dir: "output"
+  best_model_dir: "best_model"
+
+mlflow:
+  tracking_uri: "sqlite:///mlflow_store/mlflow.db"
+  experiment_name: "parcial_mlops_propension"

@@ -1,0 +1,12 @@
+{
+    "nombre": "inference_pipeline",
+    "estado": "OK",
+    "tiempo_total_segundos": 11.517,
+    "registros": 80000,
+    "latencia_segundos_por_registro": 0.00014396,
+    "cpu_inicio_percent": 14.0,
+    "cpu_fin_percent": 17.3,
+    "memoria_inicio_mb": 122.922,
+    "memoria_fin_mb": 213.711,
+    "eventos": []
+}

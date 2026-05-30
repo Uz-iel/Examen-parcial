@@ -1,0 +1,60 @@
+{
+    "champion": {
+        "version": "v4",
+        "model_name": "GradientBoosting",
+        "auc_train": 0.8522422165592239,
+        "auc_test": 0.8302371482587073,
+        "auc_oot": 0.8470269890322796,
+        "auc_gap": 0.016789840773572262,
+        "stability": "ESTABLE",
+        "n_features": 60,
+        "path": "best_model\\GradientBoosting_2026-05-29_21-42-31",
+        "model_path": "best_model\\GradientBoosting_2026-05-29_21-42-31\\model.pkl",
+        "metadata_path": "best_model\\GradientBoosting_2026-05-29_21-42-31\\metadata.json",
+        "registered_at": "2026-05-29 21:42:31"
+    },
+    "history": [
+        {
+            "version": "v1",
+            "model_name": "GradientBoosting",
+            "auc_train": 0.8744523974362579,
+            "auc_test": 0.8413916582304279,
+            "auc_oot": 0.8581664327120787,
+            "auc_gap": 0.016774774481650767,
+            "stability": "ESTABLE",
+            "n_features": 60,
+            "path": "best_model\\GradientBoosting_2026-05-29_21-00-16",
+            "model_path": "best_model\\GradientBoosting_2026-05-29_21-00-16\\model.pkl",
+            "metadata_path": "best_model\\GradientBoosting_2026-05-29_21-00-16\\metadata.json",
+            "registered_at": "2026-05-29 21:00:16"
+        },
+        {
+            "version": "v2",
+            "model_name": "GradientBoosting",
+            "auc_train": 0.8522422165592239,
+            "auc_test": 0.8302371482587073,
+            "auc_oot": 0.8470269890322796,
+            "auc_gap": 0.016789840773572262,
+            "stability": "ESTABLE",
+            "n_features": 60,
+            "path": "best_model\\GradientBoosting_2026-05-29_21-17-32",
+            "model_path": "best_model\\GradientBoosting_2026-05-29_21-17-32\\model.pkl",
+            "metadata_path": "best_model\\GradientBoosting_2026-05-29_21-17-32\\metadata.json",
+            "registered_at": "2026-05-29 21:17:32"
+        },
+        {
+            "version": "v3",
+            "model_name": "GradientBoosting",
+            "auc_train": 0.8744523974362579,
+            "auc_test": 0.8413916582304279,
+            "auc_oot": 0.8581664327120787,
+            "auc_gap": 0.016774774481650767,
+            "stability": "ESTABLE",
+            "n_features": 60,
+            "path": "best_model\\GradientBoosting_2026-05-29_21-22-04",
+            "model_path": "best_model\\GradientBoosting_2026-05-29_21-22-04\\model.pkl",
+            "metadata_path": "best_model\\GradientBoosting_2026-05-29_21-22-04\\metadata.json",
+            "registered_at": "2026-05-29 21:22:04"
+        }
+    ]
+}

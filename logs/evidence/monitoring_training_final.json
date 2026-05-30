@@ -1,0 +1,36 @@
+{
+    "nombre": "training_pipeline",
+    "estado": "OK",
+    "tiempo_total_segundos": 1088.586,
+    "registros": 480000,
+    "latencia_segundos_por_registro": 0.00226789,
+    "cpu_inicio_percent": 28.7,
+    "cpu_fin_percent": 34.7,
+    "memoria_inicio_mb": 132.992,
+    "memoria_fin_mb": 542.578,
+    "eventos": [
+        {
+            "evento": "datasets_preparados",
+            "tiempo_segundos": 32.735,
+            "cpu_percent": 8.3,
+            "memoria_mb": 476.988,
+            "extra": {}
+        },
+        {
+            "evento": "modelos_base_entrenados",
+            "tiempo_segundos": 851.336,
+            "cpu_percent": 11.5,
+            "memoria_mb": 723.281,
+            "extra": {
+                "speedup": 1.3413798034827606
+            }
+        },
+        {
+            "evento": "hpo_finalizado",
+            "tiempo_segundos": 1085.883,
+            "cpu_percent": 35.7,
+            "memoria_mb": 499.684,
+            "extra": {}
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+# Entornos
+venv/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Data real pesada: NO subir CSV reales
+data/raw/training/*.csv
+data/raw/inference/*.csv
+!data/raw/training/.gitkeep
+!data/raw/inference/.gitkeep
+
+# Data procesada se regenera
+data/processed/
+
+# MLflow local se regenera
+mlflow_store/
+mlruns/
+
+# Logs completos no se suben
+logs/*
+!logs/.gitkeep
+!logs/evidence/
+!logs/evidence/**
+
+# Outputs grandes no se suben
+output/*
+!output/.gitkeep
+!output/evidence/
+!output/evidence/**
+
+# Reportes pesados/storytelling no se suben
+reports/figures_storytelling/
+reports/tables_storytelling/
+!reports/tables/
+!reports/tables/**
+!reports/evidence/
+!reports/evidence/**
+
+# Modelos: subir solo registry y campeón final si pesa menos de 100 MB
+best_model/*
+!best_model/.gitkeep
+!best_model/registry.json
+!best_model/GradientBoosting_2026-05-29_21-42-31/
+!best_model/GradientBoosting_2026-05-29_21-42-31/**
+
+# No subir zips
+*.zip

@@ -1,0 +1,24 @@
+2026-05-29 21:18:19 | INFO | ======================================================================
+2026-05-29 21:18:19 | INFO | PIPELINE DE INFERENCIA -- periodo/archivo 10
+2026-05-29 21:18:19 | INFO | ======================================================================
+2026-05-29 21:18:19 | INFO | [STEP 1] Verificando Model Registry...
+2026-05-29 21:18:19 | INFO | Campeón actual: GradientBoosting (v2)
+2026-05-29 21:18:19 | INFO | AUC Test: 0.8302 | AUC OOT: 0.8470 | Gap: 0.0168
+2026-05-29 21:18:19 | INFO | [STEP 2] Cargando modelo campeón...
+2026-05-29 21:18:19 | INFO | [STEP 3] Preprocesando data de inferencia...
+2026-05-29 21:18:19 | INFO | Descargando: https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data/p10_extrac.csv
+2026-05-29 21:18:26 | WARNING | La data de inferencia trae target. Se ignora para predecir y se conserva solo para evaluación offline.
+2026-05-29 21:18:29 | INFO | [STEP 4] Alineando columnas con metadata del campeón...
+2026-05-29 21:18:29 | INFO | [STEP 5] Generando predicciones...
+2026-05-29 21:18:29 | INFO | Registros: 80000
+2026-05-29 21:18:29 | INFO | Score promedio: 0.029355
+2026-05-29 21:18:29 | INFO | [STEP 6] Calculando TLV, deciles y grupos de ejecución...
+2026-05-29 21:18:31 | INFO | Evaluación offline guardada en: output\evaluacion_offline_deciles_lift_10.csv
+2026-05-29 21:18:31 | INFO | Tablas de inferencia guardadas en reports/tables
+2026-05-29 21:18:31 | INFO | Latencia aproximada por registro: 0.00014396 segundos
+2026-05-29 21:18:31 | INFO | Scores guardados en: output\scores_10.csv
+2026-05-29 21:18:31 | INFO | Réplica guardada en: output\replica_GradientBoosting_10.txt
+2026-05-29 21:18:31 | INFO | Evaluación offline deciles/lift: output\evaluacion_offline_deciles_lift_10.csv
+2026-05-29 21:18:31 | INFO | ======================================================================
+2026-05-29 21:18:31 | INFO | PIPELINE DE INFERENCIA COMPLETADO EN 11.52 segundos
+2026-05-29 21:18:31 | INFO | ======================================================================
