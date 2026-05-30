@@ -46,4 +46,7 @@ best_model/*
 !best_model/GradientBoosting_2026-05-30_06-53-56/
 !best_model/GradientBoosting_2026-05-30_06-53-56/**
 
+*.ipynb
+estructura_local.txt
+
 *.zip
