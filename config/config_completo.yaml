@@ -1,6 +1,5 @@
 # Configuración completa 
 
-
 proyecto:
   nombre: "Parcial MLOps - Propensión de venta bancaria"
   autor: "Gariazzo Anarcaya, Uzziell Neyrho"
@@ -11,7 +10,7 @@ experimento:
   descripcion: "Corrida completa con más periodos, OOT más robusto y HPO con muestra mayor. Usa data real desde Git solo si no existe localmente."
 
 data:
-  
+
   url_base: "https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data"
   archivo_periodo: "p{period}_extrac.csv"
 
@@ -21,6 +20,7 @@ data:
   processed_inference_dir: "data/processed/inference"
 
   auto_download: true
+  prioridad_descarga: true
   force_download: false
 
   limite_filas_por_periodo: 80000

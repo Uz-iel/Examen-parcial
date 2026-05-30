@@ -20,6 +20,7 @@ data:
   processed_inference_dir: "data/processed/inference"
 
   auto_download: false
+  prioridad_descarga: false
   force_download: false
 
   limite_filas_por_periodo: 8000

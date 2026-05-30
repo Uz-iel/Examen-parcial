@@ -1,6 +1,5 @@
 # Configuración rápida por defecto
 
-
 proyecto:
   nombre: "Parcial MLOps - Propensión de venta bancaria"
   autor: "Gariazzo Anarcaya, Uzziell Neyrho"
@@ -20,10 +19,14 @@ data:
   processed_training_dir: "data/processed/training"
   processed_inference_dir: "data/processed/inference"
 
-  # true: si falta un CSV local, intenta descargarlo.
+  # true: intenta descargar desde el repositorio.
   auto_download: true
 
-  # false: si el CSV ya existe localmente, lo reutiliza y NO lo descarga otra vez.
+  # true: por defecto intenta descargar primero desde url_base.
+  # Si la descarga falla y existe archivo local, usa el archivo local como respaldo.
+  prioridad_descarga: true
+
+  # false: no fuerza redescarga si prioridad_descarga=false.
   force_download: false
 
   # Versión rápida: limita filas para que el profesor pueda probar en menos tiempo.

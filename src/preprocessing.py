@@ -22,24 +22,54 @@ def construir_url_periodo(config: dict, periodo: int | str) -> str:
 
 
 def buscar_o_descargar_periodo(periodo: int | str, carpeta: str, config: dict, logger) -> str:
-    """Busca p{period}_extrac.csv localmente o lo descarga desde Git si está configurado."""
+    """Obtiene p{period}_extrac.csv según la prioridad definida en YAML.
+
+    Lógica:
+    - prioridad_descarga=true: intenta descargar primero desde url_base.
+      Si falla y el archivo local existe, usa el local como respaldo.
+    - prioridad_descarga=false: busca local primero y descarga solo si falta.
+    - No genera data sintética automáticamente. La data sintética es un modo explícito.
+    """
     os.makedirs(carpeta, exist_ok=True)
     nombre = config["data"].get("archivo_periodo", "p{period}_extrac.csv").format(period=periodo)
     path = os.path.join(carpeta, nombre)
 
+    auto_download = bool(config["data"].get("auto_download", True))
+    prioridad_descarga = bool(config["data"].get("prioridad_descarga", False))
     force_download = bool(config["data"].get("force_download", False))
+    url = construir_url_periodo(config, periodo)
+
+    # Caso 1: prioridad al repositorio.
+    if prioridad_descarga and auto_download and url:
+        try:
+            logger.info("Prioridad repositorio: descargando %s", url)
+            urlretrieve(url, path)
+            logger.info("Archivo descargado y guardado en: %s", path)
+            return path
+        except Exception as error:
+            logger.warning("No se pudo descargar %s: %s", url, error)
+            if os.path.exists(path):
+                logger.warning("Se usará archivo local como respaldo: %s", path)
+                return path
+            raise FileNotFoundError(
+                f"No se pudo descargar {nombre} desde {url} y no existe copia local en {carpeta}. "
+                "Solución 1: publicar el CSV en la URL del repositorio. "
+                "Solución 2: colocar el CSV real en data/raw. "
+                "Solución 3: usar modo sintético explícito: python generate_sample_data.py --filas 8000 --periodos 10"
+            )
+
+    # Caso 2: prioridad local.
     if os.path.exists(path) and not force_download:
         logger.info("Archivo encontrado: %s", path)
         return path
 
-    auto_download = bool(config["data"].get("auto_download", True))
-    url = construir_url_periodo(config, periodo)
     if auto_download and url:
         try:
             if force_download and os.path.exists(path):
                 logger.info("force_download=true. Se reemplazará el archivo local: %s", path)
             logger.info("Descargando: %s", url)
             urlretrieve(url, path)
+            logger.info("Archivo descargado y guardado en: %s", path)
             return path
         except Exception as error:
             logger.warning("No se pudo descargar %s: %s", url, error)
@@ -48,7 +78,6 @@ def buscar_o_descargar_periodo(periodo: int | str, carpeta: str, config: dict, l
         f"No se encontró {nombre} en {carpeta}. "
         "Coloca el CSV real en data/raw o ejecuta: python generate_sample_data.py --filas 8000 --periodos 10"
     )
-
 
 def leer_csv_seguro(path: str, limite_filas: int | None = None) -> pd.DataFrame:
     """Lee un CSV con límite opcional de filas."""

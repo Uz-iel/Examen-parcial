@@ -1,5 +1,3 @@
-# Proyecto Parcial MLOps — Propensión de venta bancaria
-
 **Alumno:** Gariazzo Anarcaya, Uzziell Neyrho  
 **Repositorio:** https://github.com/Uz-iel/Examen-parcial
 
@@ -47,15 +45,17 @@ python -c "import pandas, numpy, sklearn, joblib, yaml, mlflow; print('OK entorn
 
 Los CSV reales pueden no estar incluidos en Git por tamaño.
 
-El pipeline busca datos en este orden:
+El pipeline rápido y completo usan **prioridad de descarga desde el repositorio**.
 
 ```text
-1. Busca CSV locales en data/raw/training/ o data/raw/inference/.
-2. Si el CSV existe localmente, lo usa.
-3. Si no existe y auto_download=true, intenta descargarlo desde url_base.
-4. Si la descarga falla, muestra error claro.
-5. Como alternativa, se puede ejecutar el modo sintético.
+1. Intenta descargar el CSV desde url_base.
+2. Si la descarga funciona, guarda el archivo en data/raw/ y lo usa.
+3. Si la descarga falla y existe copia local, usa la copia local como respaldo.
+4. Si no hay descarga ni copia local, muestra error claro.
+5. Como alternativa explícita, se puede ejecutar el modo sintético.
 ```
+
+La data sintética no se usa automáticamente en las corridas real/rápida/completa.
 
 Para que la descarga automática funcione, los archivos deben existir en la URL configurada:
 
@@ -66,7 +66,7 @@ https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data/p2_ext
 https://media.githubusercontent.com/media/Uz-iel/Examen-parcial/main/data/p10_extrac.csv
 ```
 
-Si esos archivos no están publicados en esa ruta, aparecerá `HTTP Error 404`. En ese caso se debe colocar la data manualmente o usar el modo sintético.
+Si esos archivos no están publicados en esa ruta, aparecerá `HTTP Error 404`. Para que la descarga por defecto funcione, los CSV reales deben estar publicados en el repositorio o en una ubicación compatible con `url_base`. Si no se publican, se debe colocar la data manualmente o usar el modo sintético.
 
 ---
 
@@ -281,5 +281,3 @@ best_model/registry.json
 ```
 
 Las salidas completas se regeneran ejecutando el pipeline.
-
---- 

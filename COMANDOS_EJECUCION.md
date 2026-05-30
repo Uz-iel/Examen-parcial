@@ -42,3 +42,20 @@ python training_pipeline.py
 python inference_pipeline.py --period 5
 python -m mlflow ui --backend-store-uri sqlite:///mlflow_store/mlflow.db
 ```
+
+
+## Nota sobre data real
+
+Las configuraciones `config.yaml` y `config_completo.yaml` tienen `prioridad_descarga: true`.
+Eso significa que intentan descargar primero desde la URL configurada en `url_base`.
+
+Si la URL no contiene los CSV reales, usar una de estas opciones:
+
+```powershell
+# Alternativa sintética
+python generate_sample_data.py --filas 8000 --periodos 10
+python training_pipeline.py --config config/config_sintetico.yaml --skip-mlflow
+python inference_pipeline.py --config config/config_sintetico.yaml --period 10 --skip-mlflow
+```
+
+o colocar manualmente los CSV en `data/raw/training/` y `data/raw/inference/`.
