@@ -29,6 +29,7 @@ def leer_argumentos():
     parser.add_argument("--config", default="config/config.yaml", help="Ruta del archivo YAML de configuración")
     parser.add_argument("--period", default=None, help="Periodo a inferir. Ejemplo: 10 para p10_extrac.csv")
     parser.add_argument("--input-file", default=None, help="Ruta de CSV externo para inferencia")
+    parser.add_argument("--skip-mlflow",action="store_true", help="Omitir registro MLflow en inferencia" )
     return parser.parse_args()
 
 
